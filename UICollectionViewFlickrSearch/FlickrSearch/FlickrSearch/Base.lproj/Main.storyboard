@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Collection View Controller-->
+        <!--Flickr Photos View Controller-->
         <scene sceneID="fyN-jO-8un">
             <objects>
-                <collectionViewController id="Uzt-Mf-uQ7" sceneMemberID="viewController">
+                <collectionViewController id="Uzt-Mf-uQ7" customClass="FlickrPhotosViewController" customModule="FlickrSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="D3d-w9-ghN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,18 @@
                             <outlet property="delegate" destination="Uzt-Mf-uQ7" id="dSN-WJ-ZO6"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="fG9-hc-7De"/>
+                    <navigationItem key="navigationItem" id="fG9-hc-7De">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" minimumFontSize="17" id="enm-7s-XTw">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            <connections>
+                                <outlet property="delegate" destination="Uzt-Mf-uQ7" id="szS-OC-puX"/>
+                            </connections>
+                        </textField>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhK-RS-gMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
