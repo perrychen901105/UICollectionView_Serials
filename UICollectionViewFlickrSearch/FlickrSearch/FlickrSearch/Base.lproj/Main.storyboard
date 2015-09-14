@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rqO-dn-yJq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rqO-dn-yJq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -14,7 +14,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pQg-3d-I1y">
                             <size key="itemSize" width="200" height="200"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="90"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
@@ -29,20 +29,46 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fpY-Kf-dUm">
                                             <rect key="frame" x="5" y="5" width="190" height="190"/>
                                         </imageView>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ilz-kM-vxq">
+                                            <rect key="frame" x="82" y="82" width="37" height="37"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="Ilz-kM-vxq" secondAttribute="centerY" id="2ZH-85-SfS"/>
                                     <constraint firstAttribute="trailing" secondItem="fpY-Kf-dUm" secondAttribute="trailing" constant="5" id="Erw-Fg-Ie4"/>
                                     <constraint firstAttribute="bottom" secondItem="fpY-Kf-dUm" secondAttribute="bottom" constant="5" id="VDZ-7w-pyy"/>
                                     <constraint firstItem="fpY-Kf-dUm" firstAttribute="top" secondItem="ilZ-8x-Fxn" secondAttribute="top" constant="5" id="Vei-SX-GoA"/>
+                                    <constraint firstAttribute="centerX" secondItem="Ilz-kM-vxq" secondAttribute="centerX" id="b7e-5d-bV7"/>
                                     <constraint firstItem="fpY-Kf-dUm" firstAttribute="leading" secondItem="ilZ-8x-Fxn" secondAttribute="leading" constant="5" id="tpA-Do-Gir"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="Ilz-kM-vxq" id="7l2-ks-dme"/>
                                     <outlet property="imgView" destination="fpY-Kf-dUm" id="1d6-sp-rDB"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FlickrPhotoHeaderView" id="kdk-Mv-uas" customClass="FlickrPhotoHeaderView" customModule="FlickrSearch" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozr-At-oXW">
+                                    <rect key="frame" x="262" y="25" width="77" height="39"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="centerX" secondItem="ozr-At-oXW" secondAttribute="centerX" id="WYZ-ya-XXi"/>
+                                <constraint firstAttribute="centerY" secondItem="ozr-At-oXW" secondAttribute="centerY" id="gPZ-Z2-WEO"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="label" destination="ozr-At-oXW" id="PeR-0u-fHy"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="Uzt-Mf-uQ7" id="MiZ-LM-Xdi"/>
                             <outlet property="delegate" destination="Uzt-Mf-uQ7" id="dSN-WJ-ZO6"/>
@@ -59,6 +85,11 @@
                                 <outlet property="delegate" destination="Uzt-Mf-uQ7" id="szS-OC-puX"/>
                             </connections>
                         </textField>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="FUa-DB-Dww">
+                            <connections>
+                                <action selector="share:" destination="Uzt-Mf-uQ7" id="bRW-Mu-IcI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AhK-RS-gMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
